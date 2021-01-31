@@ -19,6 +19,9 @@
             height: 60px;
             display: inline-block;
         }
+        .footer{
+            background-color: lightgray
+        }
     </style>
 </head>
 <body>
@@ -84,15 +87,20 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2021 - Middle Earth Inc - <a asp-area="" asp-page="/AboutUs">About-Us </a><a asp-area="" asp-page="/Privacy"> Privacy</a>
+            &copy; 2021 - Middle Earth Inc - <a asp-area="" asp-page="/AboutUs">About-Us </a><a asp-area="" asp-page="/Privacy"> Privacy</a> <br />
+            <a> Address: </a>
+            <a>3336 Jeffersons Avenue, Cincinnati, Ohio</a><br />
+            <a> Phone: +1 513-836-1971</a><br />
+            <a href="#top">Back to top</a>
+            @*<hgroup>
+                <h5 style="padding-left: 130px">Address</h5>
+                <h6 style="padding-left: 130px">3336 Jeffersons Avenue, Cincinnati, Ohio</h6>
+                <P5 style="padding-left: 130px">Phone: </P5>
+                <p6>+1 513-8361971</p6>
+                <div> <a href="#top" style="padding-left: 130px">Back to top</a></div>
+            </hgroup>*@
         </div>
-        @*<hgroup>*@
-            <h5 style="padding-left: 130px">Address</h5>
-            <h6 style="padding-left: 130px">3336 Jeffersons Avenue, Cincinnati, Ohio</h6>
-            <P5 style="padding-left: 130px">Phone: </P5><p6>+1 513-8361971</p6>
-        <div> <a href="#top" style="padding-left: 130px">Back to top</a></div>
-        
-    </footer>
+</footer>
 
         <script src="~/lib/jquery/dist/jquery.min.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
