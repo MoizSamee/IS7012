@@ -15,6 +15,7 @@ namespace RecruitCatSameemz.Pages.Models
         public List<Candidate> Candidates { get; set; }
         public int? Grade { get; set; }
         public int CandidateId { get; set; }
+        public bool? fulltime { get; set; }
 
     }
 }

@@ -23,5 +23,6 @@ namespace RecruitCatSameemz.Pages.Models
         public string PhoneNo { get; set; }
         public bool? Gender { get; set; }
         public decimal? ExpInYears { get; set; }
+        public string SSN { get; set; }
     }
 }
