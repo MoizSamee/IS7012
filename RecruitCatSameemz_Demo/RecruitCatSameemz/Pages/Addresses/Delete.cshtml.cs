@@ -6,8 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using RecruitCatSameemz.Data;
+using RecruitCatSameemz.Pages.Models;
 
-namespace RecruitCatSameemz.Pages.Models
+namespace RecruitCatSameemz.Pages.Addresses
 {
     public class DeleteModel : PageModel
     {
@@ -19,7 +20,7 @@ namespace RecruitCatSameemz.Pages.Models
         }
 
         [BindProperty]
-        public Company Company { get; set; }
+        public Address Address { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -28,10 +29,9 @@ namespace RecruitCatSameemz.Pages.Models
                 return NotFound();
             }
 
-            Company = await _context.Company
-                .Include(c => c.Industry).FirstOrDefaultAsync(m => m.CompanyId == id);
+            Address = await _context.Address.FirstOrDefaultAsync(m => m.AddressId == id);
 
-            if (Company == null)
+            if (Address == null)
             {
                 return NotFound();
             }
@@ -45,11 +45,11 @@ namespace RecruitCatSameemz.Pages.Models
                 return NotFound();
             }
 
-            Company = await _context.Company.FindAsync(id);
+            Address = await _context.Address.FindAsync(id);
 
-            if (Company != null)
+            if (Address != null)
             {
-                _context.Company.Remove(Company);
+                _context.Address.Remove(Address);
                 await _context.SaveChangesAsync();
             }
 

@@ -1,11 +1,11 @@
 ﻿@page
-@model RecruitCatSameemz.Pages.Models.EditModel
+@model RecruitCatSameemz.Pages.Companies.CreateModel
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = " Create Company";
 }
 
-<h1>Edit</h1>
+<h1>Create New Company</h1>
 
 <h4>Company</h4>
 <hr />
@@ -13,16 +13,10 @@
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Company.CompanyId" />
             <div class="form-group">
                 <label asp-for="Company.ComapyName" class="control-label"></label>
                 <input asp-for="Company.ComapyName" class="form-control" />
                 <span asp-validation-for="Company.ComapyName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Company.OpenPosition" class="control-label"></label>
-                <input asp-for="Company.OpenPosition" class="form-control" />
-                <span asp-validation-for="Company.OpenPosition" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Company.MinSalary" class="control-label"></label>
@@ -46,17 +40,16 @@
             </div>
             <div class="form-group">
                 <label asp-for="Company.IndustryId" class="control-label"></label>
-                <select asp-for="Company.IndustryId" class="form-control" asp-items="ViewBag.IndustryId"></select>
-                <span asp-validation-for="Company.IndustryId" class="text-danger"></span>
+                <select asp-for="Company.IndustryId" class="form-control" asp-items="ViewBag.IndustryID"></select>
             </div>
             <div class="form-group">
-                <label asp-for="Company.AddressId" class="control-label"></label>
-                <input asp-for="Company.AddressId" class="form-control" />
-                <span asp-validation-for="Company.AddressId" class="text-danger"></span>
+                <label asp-for="Company.Address" class="control-label"></label>
+                <textarea asp-for="Company.Address" class="form-control" />
+                <span asp-validation-for="Company.Address" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Company.Description" class="control-label"></label>
-                <input asp-for="Company.Description" class="form-control" />
+                <textarea asp-for="Company.Description" class="form-control" />
                 <span asp-validation-for="Company.Description" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -65,14 +58,14 @@
                 <span asp-validation-for="Company.WebsiteUrl" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="Index">Back to List</a>
 </div>
 
 @section Scripts {

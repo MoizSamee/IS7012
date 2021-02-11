@@ -1,27 +1,20 @@
 ﻿@page
 @model IndexModel
-@{
-    ViewData["Title"] = "Home page";
-}
+@{ ViewData["Title"] = "Home page"; }
 <style>
-    .card{
-    
+    .card {
         padding-left: 15px;
         padding-top: 15px;
         padding-right: 15px;
         padding-bottom: 15px;
-    
     }
-    
-    .carousel
-    {
+
+    .carousel {
         padding-left: 15px;
         padding-top: 15px;
         padding-right: 15px;
         padding-right: 15px;
-    
     }
-    
 </style>
 <div class="text-center">
     <h1 class="display-4"><strong>Middle Earth Inc</strong></h1>
@@ -35,6 +28,43 @@
         </p>
     </div>
 </div>
+<h2 style="color: royalblue">Services Offered</h2>
+<div class="card-deck">
+    <div class="card">
+        @*<img class="card-img-top" src="~/images/avatar.jpg" alt="Card image cap">*@
+        <div class="card-block">
+            <h4 class="card-title" style="color: royalblue">Training</h4>
+
+            <p class="card-text">
+                Best in class training on application development and guidance
+            </p>
+            <a class="btn btn-primary" asp-area="" asp-page="/Training"> Search for Trainings</a>
+
+        </div>
+    </div>
+
+    <div class="card">
+        @*<img class="card-img-top" src="~/images/card_1.jpg">*@
+        <div class="card-block">
+            <h4 class="card-title" style="color: royalblue">Career Building</h4>
+            <p>This is the service used to give expert adivce to candidates to start their caree.</p>
+            <a class="btn btn-primary" asp-area="" asp-page="/CareerBuilding"> Build Your Career</a>
+        </div>
+    </div>
+
+    <div class="card">
+        @*<img class="card-img-top" src="~/images/card_2.jpg">*@
+        <div class="card-block">
+            <h4 class="card-title" style="color: royalblue">Job Search</h4>
+            <p class="card-text">
+                We provide premium services to find a job and ace the interviews.
+            </p>
+            <a class="btn btn-primary" asp-area="" asp-page="/JobSearch"> Search for Jobs</a>
+        </div>
+    </div>
+</div>
+<hr />
+
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -72,42 +102,6 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
     </a>
-</div>
-<hr />
-<h2 style="color: royalblue">Services Offered</h2>
-<div class="card-deck">
-    <div class="card">
-        @*<img class="card-img-top" src="~/images/avatar.jpg" alt="Card image cap">*@
-        <div class="card-block">
-            <h4 class="card-title" style="color: purple">Training</h4>
-
-            <p class="card-text">
-                Best in class training on application development and guidance
-            </p>
-            <a class="btn btn-primary" asp-area="" asp-page="/Training"> Search for Trainings</a>
-
-        </div>
-    </div>
-
-    <div class="card">
-        @*<img class="card-img-top" src="~/images/card_1.jpg">*@
-        <div class="card-block">
-            <h4 class="card-title" style="color: purple">Career Building</h4>
-            <p>This is the service used to give expert adivce to candidates to start their caree.</p>
-            <a class="btn btn-primary" asp-area="" asp-page="/CareerBuilding"> Build Your Career</a>
-        </div>
-    </div>
-
-    <div class="card">
-        @*<img class="card-img-top" src="~/images/card_2.jpg">*@
-        <div class="card-block">
-            <h4 class="card-title" style="color: purple">Job Search</h4>
-            <p class="card-text">
-                We provide premium services to find a job and ace the interviews.
-            </p>
-            <a class="btn btn-primary" asp-area="" asp-page="/JobSearch"> Search for Jobs</a>
-        </div>
-    </div>
 </div>
 <hr />
 <h2 style="color: royalblue">Testimonial</h2>

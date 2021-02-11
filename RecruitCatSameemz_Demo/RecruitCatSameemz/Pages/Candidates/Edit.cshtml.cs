@@ -7,8 +7,9 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using RecruitCatSameemz.Data;
+using RecruitCatSameemz.Pages.Models;
 
-namespace RecruitCatSameemz.Pages.Models
+namespace RecruitCatSameemz.Pages.Candidates
 {
     public class EditModel : PageModel
     {
@@ -20,7 +21,7 @@ namespace RecruitCatSameemz.Pages.Models
         }
 
         [BindProperty]
-        public Company Company { get; set; }
+        public Candidate Candidate { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -29,14 +30,12 @@ namespace RecruitCatSameemz.Pages.Models
                 return NotFound();
             }
 
-            Company = await _context.Company
-                .Include(c => c.Industry).FirstOrDefaultAsync(m => m.CompanyId == id);
+            Candidate = await _context.Candidate.FirstOrDefaultAsync(m => m.CandidateId == id);
 
-            if (Company == null)
+            if (Candidate == null)
             {
                 return NotFound();
             }
-           ViewData["IndustryId"] = new SelectList(_context.Set<Industry>(), "IndustryId", "IndustryId");
             return Page();
         }
 
@@ -49,7 +48,7 @@ namespace RecruitCatSameemz.Pages.Models
                 return Page();
             }
 
-            _context.Attach(Company).State = EntityState.Modified;
+            _context.Attach(Candidate).State = EntityState.Modified;
 
             try
             {
@@ -57,7 +56,7 @@ namespace RecruitCatSameemz.Pages.Models
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CompanyExists(Company.CompanyId))
+                if (!CandidateExists(Candidate.CandidateId))
                 {
                     return NotFound();
                 }
@@ -70,9 +69,9 @@ namespace RecruitCatSameemz.Pages.Models
             return RedirectToPage("./Index");
         }
 
-        private bool CompanyExists(int id)
+        private bool CandidateExists(int id)
         {
-            return _context.Company.Any(e => e.CompanyId == id);
+            return _context.Candidate.Any(e => e.CandidateId == id);
         }
     }
 }

@@ -1,0 +1,85 @@
+﻿@page
+@model RecruitCatSameemz.Pages.Candidates.DetailsModel
+
+@{
+    ViewData["Title"] = "Candidate Details";
+}
+
+<h1>Cnadidate Details </h1>
+
+<div>
+    <h4>Candidate</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Candidate.FirstName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Candidate.FirstName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Candidate.LastName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Candidate.LastName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Candidate.TargetSalary)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Candidate.TargetSalary)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Candidate.StartDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Candidate.StartDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Candidate.CurrentEmployer)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Candidate.CurrentEmployer)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Candidate.Address)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Candidate.Address)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Candidate.PhoneNo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Candidate.PhoneNo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Candidate.Gender)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Candidate.Gender)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Candidate.ExpInYears)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Candidate.ExpInYears)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Candidate.SSN)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Candidate.SSN)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Candidate.Email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Candidate.Email)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Candidate.CandidateId">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

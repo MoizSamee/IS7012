@@ -10,6 +10,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using RecruitCatSameemz.Data;
+using Gtt.Uc.EntityFramework;
+
+
 
 namespace RecruitCatSameemz
 {
@@ -27,8 +30,9 @@ namespace RecruitCatSameemz
         {
             services.AddRazorPages();
 
-            services.AddDbContext<RecruitCatSameemzContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("RecruitCatSameemzContext")));
+            /*services.AddDbContext<RecruitCatSameemzContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("RecruitCatSameemzContext")));*/
+            services.AddGttMem<RecruitCatSameemzContext>("cf89f748-586b-4602-95e0-0294d2761263");
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

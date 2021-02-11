@@ -6,18 +6,20 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using RecruitCatSameemz.Data;
+using RecruitCatSameemz.Pages.Models;
 
-namespace RecruitCatSameemz.Pages.Models
+namespace RecruitCatSameemz.Pages.Companies
 {
-    public class DetailsModel : PageModel
+    public class DeleteModel : PageModel
     {
         private readonly RecruitCatSameemz.Data.RecruitCatSameemzContext _context;
 
-        public DetailsModel(RecruitCatSameemz.Data.RecruitCatSameemzContext context)
+        public DeleteModel(RecruitCatSameemz.Data.RecruitCatSameemzContext context)
         {
             _context = context;
         }
 
+        [BindProperty]
         public Company Company { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
@@ -35,6 +37,24 @@ namespace RecruitCatSameemz.Pages.Models
                 return NotFound();
             }
             return Page();
+        }
+
+        public async Task<IActionResult> OnPostAsync(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            Company = await _context.Company.FindAsync(id);
+
+            if (Company != null)
+            {
+                _context.Company.Remove(Company);
+                await _context.SaveChangesAsync();
+            }
+
+            return RedirectToPage("./Index");
         }
     }
 }
