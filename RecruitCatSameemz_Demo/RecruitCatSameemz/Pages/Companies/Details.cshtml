@@ -67,6 +67,111 @@
         </dd>
     </dl>
 </div>
+@if (Model.Company.Candidates.Any())
+{
+    <table class="table">
+        @*<thead>*@
+        <thead class="thead-dark">
+
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Company.Candidates[0].FirstName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Company.Candidates[0].LastName)
+                </th>
+                
+                <th>
+                    @Html.DisplayNameFor(model => model.Company.Candidates[0].JobTitle.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Company.Candidates[0].Industry.IndustryName)
+                </th>
+                @*<th>
+                    @Html.DisplayNameFor(model => model.Candidate[0].Company.ComapyName)
+                </th>*@
+                @*<th>
+                        @Html.DisplayNameFor(model => model.Candidate[0].CurrentEmployer)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Candidate[0].Address)
+                    </th>
+                *@
+                <th>
+                    @Html.DisplayNameFor(model => model.Company.Candidates[0].PhoneNo)
+                </th>
+                
+                <th>
+                    @Html.DisplayNameFor(model => model.Company.Candidates[0].SSN)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Company.Candidates[0].Email)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Company.Candidates)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastName)
+                    </td>
+                    @*<td>
+                        @Html.DisplayFor(modelItem => item.TargetSalary)
+                    </td>*@
+                    @*<td>
+                        @Html.DisplayFor(modelItem => item.StartDate)
+                    </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.JobTitle.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Industry.IndustryName)
+                    </td>
+                    @*<td>
+                        @Html.DisplayFor(modelItem => item.Company.ComapyName)
+                    </td>*@
+                    @*<td>
+                            @Html.DisplayFor(modelItem => item.CurrentEmployer)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Address)
+                        </td>
+                    *@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PhoneNo)
+                    </td>
+                    @*<td>
+                        @Html.DisplayFor(modelItem => item.Gender)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ExpInYears)
+                    </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SSN)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @*<a asp-page="./Edit" asp-route-id="@item.CandidateId" class="btn btn-primary">Edit</a>*@
+                        <a asp-page="/Candidates/Details" asp-route-id="@item.CandidateId" class="btn btn-primary">Details</a>
+                        @*<a asp-page="./Delete" asp-route-id="@item.CandidateId" class="btn btn-primary">Delete</a>*@
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}
+else
+{
+    <div class="alert alert-warning"> No Candidates Found</div>
+}
 <div>
     <a asp-page="./Edit" asp-route-id="@Model.Company.CompanyId">Edit</a> |
     <a asp-page="./Index">Back to List</a>
