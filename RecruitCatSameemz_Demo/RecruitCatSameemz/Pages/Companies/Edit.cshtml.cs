@@ -31,13 +31,15 @@ namespace RecruitCatSameemz.Pages.Companies
             }
 
             Company = await _context.Company
-                .Include(c => c.Industry).FirstOrDefaultAsync(m => m.CompanyId == id);
+                .Include(c => c.Industry)
+                .Include(c => c.JobTitle).FirstOrDefaultAsync(m => m.CompanyId == id);
 
             if (Company == null)
             {
                 return NotFound();
             }
-           ViewData["IndustryId"] = new SelectList(_context.Set<Industry>(), "IndustryId", "IndustryId");
+           ViewData["IndustryId"] = new SelectList(_context.Industry, "IndustryId", "IndustryId");
+           ViewData["JobTitleId"] = new SelectList(_context.JobTitle, "JobTitleId", "JobTitleId");
             return Page();
         }
 

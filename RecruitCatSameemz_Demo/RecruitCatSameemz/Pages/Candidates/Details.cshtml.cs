@@ -28,7 +28,10 @@ namespace RecruitCatSameemz.Pages.Candidates
                 return NotFound();
             }
 
-            Candidate = await _context.Candidate.FirstOrDefaultAsync(m => m.CandidateId == id);
+            Candidate = await _context.Candidate
+                .Include(c => c.Company)
+                .Include(c => c.Industry)
+                .Include(c => c.JobTitle).FirstOrDefaultAsync(m => m.CandidateId == id);
 
             if (Candidate == null)
             {

@@ -5,10 +5,10 @@
     ViewData["Title"] = "List of Job Titles";
 }
 
-<h1>All Job Titles</h1>
+<h1>List Of Job Titles</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create" class="btn-outline-primary">Create New</a>
 </p>
 <table class="table">
     <thead>
@@ -22,11 +22,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.JobTitle[0].MaxSalary)
             </th>
-            
             <th>
                 @Html.DisplayNameFor(model => model.JobTitle[0].Grade)
             </th>
-            
             <th>
                 @Html.DisplayNameFor(model => model.JobTitle[0].fulltime)
             </th>
@@ -45,11 +43,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.MaxSalary)
             </td>
-            
             <td>
                 @Html.DisplayFor(modelItem => item.Grade)
             </td>
-            
             <td>
                 @*@Html.DisplayFor(modelItem => item.fulltime)*@
                 @if (item.fulltime)
@@ -60,7 +56,6 @@
                 {
                     <span class="badge bg-info text-dark">Part-Time</span>
                 }
-
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.JobTitleId">Edit</a> |

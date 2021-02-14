@@ -21,7 +21,8 @@ namespace RecruitCatSameemz.Pages.Companies
 
         public IActionResult OnGet()
         {
-        ViewData["IndustryId"] = new SelectList(_context.Set<Industry>(), "IndustryId", "IndustryId");
+        ViewData["IndustryId"] = new SelectList(_context.Industry, "IndustryId", "IndustryName");
+        ViewData["JobTitleId"] = new SelectList(_context.JobTitle, "JobTitleId", "Title");
             return Page();
         }
 
@@ -34,6 +35,8 @@ namespace RecruitCatSameemz.Pages.Companies
         {
             if (!ModelState.IsValid)
             {
+                ViewData["IndustryId"] = new SelectList(_context.Industry, "IndustryId", "IndustryName");
+                ViewData["JobTitleId"] = new SelectList(_context.JobTitle, "JobTitleId", "Title");
                 return Page();
             }
 

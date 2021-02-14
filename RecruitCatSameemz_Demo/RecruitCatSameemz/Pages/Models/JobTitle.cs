@@ -9,7 +9,7 @@ namespace RecruitCatSameemz.Pages.Models
     public class JobTitle
     {
         [Display(Name = "Job Title ID")]
-        [Range(1, 9999999)]
+        
         public int JobTitleId { get; set; }
 
         [Display(Name = "Job Title")]
@@ -20,7 +20,7 @@ namespace RecruitCatSameemz.Pages.Models
         public int MinSalary { get; set; }
 
         [Display(Name = "Max Salary")]
-        [Range(1, 9999999)]
+        [Range(0, 9999999)]
         public int MaxSalary { get; set; }
         //public decimal? PreviousSalary { get; set; }
 

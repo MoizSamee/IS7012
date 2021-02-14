@@ -2,19 +2,28 @@
 @model RecruitCatSameemz.Pages.Companies.IndexModel
 
 @{
-    ViewData["Title"] = "All Copmanies";
+    ViewData["Title"] = "List of Companies";
 }
 
-<h1>All Copmanies</h1>
+<h1>List of Companies</h1>
 
 <p>
-    <a asp-page="Create">Create New Company</a>
+    <a asp-page="Create" class="btn-outline-primary">Create New</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.Company[0].CompanyId)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Company[0].ComapyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Company[0].Industry)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Company[0].JobTitle)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Company[0].MinSalary)
@@ -25,11 +34,16 @@
             <th>
                 @Html.DisplayNameFor(model => model.Company[0].StartDate)
             </th>
-            
+            @*<th>
+            @Html.DisplayNameFor(model => model.Company[0].Location)
+        </th>*@
+
             <th>
-                @Html.DisplayNameFor(model => model.Company[0].Industry)
+                @Html.DisplayNameFor(model => model.Company[0].Description)
             </th>
-            
+            <th>
+                @Html.DisplayNameFor(model => model.Company[0].WebsiteUrl)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -37,7 +51,16 @@
 @foreach (var item in Model.Company) {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.CompanyId)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.ComapyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Industry.IndustryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JobTitle.Title)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.MinSalary)
@@ -48,12 +71,16 @@
             <td>
                 @Html.DisplayFor(modelItem => item.StartDate)
             </td>
-            
+            @*<td>
+            @Html.DisplayFor(modelItem => item.Location)
+        </td>*@
+
             <td>
-                @Html.DisplayFor(modelItem => item.Industry.IndustryId)
+                @Html.DisplayFor(modelItem => item.Description)
             </td>
-            
-            s
+            <td>
+                @Html.DisplayFor(modelItem => item.WebsiteUrl)
+            </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.CompanyId">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.CompanyId">Details</a> |

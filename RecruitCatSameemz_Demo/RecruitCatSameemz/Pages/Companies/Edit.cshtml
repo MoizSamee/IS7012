@@ -5,7 +5,7 @@
     ViewData["Title"] = "Edit Company";
 }
 
-<h1>Edit Company "@Html.DisplayFor(model => model.Company.ComapyName)"</h1>
+<h1>Edit Company</h1>
 
 <h4>Company</h4>
 <hr />
@@ -18,6 +18,11 @@
                 <label asp-for="Company.ComapyName" class="control-label"></label>
                 <input asp-for="Company.ComapyName" class="form-control" />
                 <span asp-validation-for="Company.ComapyName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Company.JobTitleId" class="control-label"></label>
+                <select asp-for="Company.JobTitleId" class="form-control" asp-items="ViewBag.JobTitleId"></select>
+                <span asp-validation-for="Company.JobTitleId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Company.MinSalary" class="control-label"></label>
@@ -44,7 +49,6 @@
                 <select asp-for="Company.IndustryId" class="form-control" asp-items="ViewBag.IndustryId"></select>
                 <span asp-validation-for="Company.IndustryId" class="text-danger"></span>
             </div>
-            
             <div class="form-group">
                 <label asp-for="Company.Description" class="control-label"></label>
                 <input asp-for="Company.Description" class="form-control" />

@@ -16,8 +16,8 @@ namespace RecruitCatSameemz.Data
 
         public DbSet<RecruitCatSameemz.Pages.Models.Company> Company { get; set; }
 
-        public DbSet<RecruitCatSameemz.Pages.Models.Address> Address { get; set; }
-
+        /*public DbSet<RecruitCatSameemz.Pages.Models.Address> Address { get; set; }
+*/
         public DbSet<RecruitCatSameemz.Pages.Models.Candidate> Candidate { get; set; }
 
         public DbSet<RecruitCatSameemz.Pages.Models.Industry> Industry { get; set; }

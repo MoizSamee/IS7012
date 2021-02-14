@@ -2,10 +2,10 @@
 @model RecruitCatSameemz.Pages.Companies.DetailsModel
 
 @{
-    ViewData["Title"] = "Company Details";
+    ViewData["Title"] = "Details of company";
 }
 
-<h1>Company Details for "@Html.DisplayFor(model => model.Company.ComapyName)"</h1>
+<h1>Details of a company</h1>
 
 <div>
     <h4>Company</h4>
@@ -16,6 +16,12 @@
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Company.ComapyName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Company.JobTitle)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Company.JobTitle.JobTitleId)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Company.MinSalary)
@@ -47,8 +53,6 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Company.Industry.IndustryId)
         </dd>
-        
-        
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Company.Description)
         </dt>

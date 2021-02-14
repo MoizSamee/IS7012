@@ -21,6 +21,9 @@ namespace RecruitCatSameemz.Pages.Candidates
 
         public IActionResult OnGet()
         {
+            ViewData["CompanyId"] = new SelectList(_context.Company, "CompanyId", "ComapyName");
+            ViewData["IndustryId"] = new SelectList(_context.Industry, "IndustryId", "IndustryName");
+            ViewData["JobTitleId"] = new SelectList(_context.JobTitle, "JobTitleId", "Title");
             return Page();
         }
 

@@ -9,17 +9,16 @@ namespace RecruitCatSameemz.Pages.Models
     public class Candidate
     {
         [Display(Name = "Candidate ID")]
-        [Range(1,9999999)]
         public int CandidateId { get; set; }
-        
+
         [Display(Name = "First Name")]
         [StringLength(20, MinimumLength = 3)]
-        [Required]
+        [Required(ErrorMessage = "First is Required")]
         public string FirstName { get; set; }
 
         [Display(Name = "Last Name")]
         [StringLength(20, MinimumLength = 3)]
-        [Required]
+        [Required(ErrorMessage = "Last is Required")]
         public string LastName { get; set; }
 
         [Display(Name = "Target Salary")]
@@ -31,17 +30,32 @@ namespace RecruitCatSameemz.Pages.Models
         [DataType(DataType.Date)]
         public DateTime? StartDate { get; set; }
 
-        [Display(Name = "Current Job Title")]
+        [Display(Name = "Job Title")]
         public JobTitle JobTitle { get; set; }
-        //public Industry Industry { get; set; }
-        //public int JobTitleId { get; set; }
-        //public int IndustryId { get; set; }
+
+        [Display(Name = "Industry")]
+        public Industry Industry { get; set; }
+
+        [Display(Name = "Company Name")]
+
+        public Company Company { get; set; }
+
+        [Display(Name = "Company Id")]
+
+        public int CompanyId { get; set; }
+
+        [Display(Name = "Job Title Id")]
+        public int JobTitleId { get; set; }
+
+        [Display(Name = "Industry Id")]
+        public int IndustryId { get; set; }
 
         [Display(Name = "Current Employer")]
         public String CurrentEmployer { get; set; }
 
         [Display(Name = "Address")]
-        public String Address { get; set; }
+        [StringLength(100, MinimumLength = 3)]
+        public string Address { get; set; }
 
         [Display(Name = "Phone No")]
         [Phone]
@@ -49,9 +63,11 @@ namespace RecruitCatSameemz.Pages.Models
         public string PhoneNo { get; set; }
 
         [Display(Name = "Gender")]
+        [StringLength(6, MinimumLength = 4)]
         public string Gender { get; set; }
-        
+
         [Display(Name = "Work Ex in Years")]
+        [Range(0,100)]
         public decimal? ExpInYears { get; set; }
 
         [Display(Name = "SSN")]
@@ -60,6 +76,7 @@ namespace RecruitCatSameemz.Pages.Models
         public string SSN { get; set; }
 
         [Display(Name = "Email Address")]
+        /*[StringLength(25)]*/
         [EmailAddress]
         public string Email { get; set; }
     }

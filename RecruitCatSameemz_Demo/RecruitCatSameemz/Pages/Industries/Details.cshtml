@@ -2,10 +2,10 @@
 @model RecruitCatSameemz.Pages.Industries.DetailsModel
 
 @{
-    ViewData["Title"] = "Details Industry";
+    ViewData["Title"] = "Details of an Industry";
 }
 
-<h1>Details Industry  for "@Html.DisplayFor(model => model.Industry.IndustryName)"</h1>
+<h1>Details of an Industry</h1>
 
 <div>
     <h4>Industry</h4>
@@ -23,18 +23,6 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Industry.Type)
         </dd>
-        @*<dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Industry.CompanyId)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Industry.CompanyId)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Industry.CandidateId)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Industry.CandidateId)
-        </dd>*@
     </dl>
 </div>
 <div>
