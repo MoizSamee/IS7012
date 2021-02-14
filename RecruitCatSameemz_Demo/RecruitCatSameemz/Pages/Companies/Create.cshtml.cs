@@ -6,8 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using RecruitCatSameemz.Data;
+using RecruitCatSameemz.Pages.Models;
 
-namespace RecruitCatSameemz.Pages.Models
+namespace RecruitCatSameemz.Pages.Companies
 {
     public class CreateModel : PageModel
     {
@@ -20,7 +21,8 @@ namespace RecruitCatSameemz.Pages.Models
 
         public IActionResult OnGet()
         {
-        ViewData["IndustryId"] = new SelectList(_context.Set<Industry>(), "IndustryId", "IndustryId");
+        ViewData["IndustryId"] = new SelectList(_context.Industry, "IndustryId", "IndustryName");
+        ViewData["JobTitleId"] = new SelectList(_context.JobTitle, "JobTitleId", "Title");
             return Page();
         }
 
@@ -33,6 +35,8 @@ namespace RecruitCatSameemz.Pages.Models
         {
             if (!ModelState.IsValid)
             {
+                ViewData["IndustryId"] = new SelectList(_context.Industry, "IndustryId", "IndustryName");
+                ViewData["JobTitleId"] = new SelectList(_context.JobTitle, "JobTitleId", "Title");
                 return Page();
             }
 

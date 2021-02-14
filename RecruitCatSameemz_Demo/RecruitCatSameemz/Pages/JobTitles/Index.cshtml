@@ -1,0 +1,68 @@
+﻿@page
+@model RecruitCatSameemz.Pages.JobTitles.IndexModel
+
+@{
+    ViewData["Title"] = "List of Job Titles";
+}
+
+<h1>List Of Job Titles</h1>
+
+<p>
+    <a asp-page="Create" class="btn-outline-primary">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.JobTitle[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JobTitle[0].MinSalary)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JobTitle[0].MaxSalary)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JobTitle[0].Grade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JobTitle[0].fulltime)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.JobTitle) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MinSalary)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaxSalary)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Grade)
+            </td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.fulltime)*@
+                @if (item.fulltime)
+                {
+                    <span class="badge bg-success">Full-Time</span>
+                }
+                else
+                {
+                    <span class="badge bg-info text-dark">Part-Time</span>
+                }
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.JobTitleId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.JobTitleId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.JobTitleId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

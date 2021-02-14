@@ -6,8 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using RecruitCatSameemz.Data;
+using RecruitCatSameemz.Pages.Models;
 
-namespace RecruitCatSameemz.Pages.Models
+namespace RecruitCatSameemz.Pages.Candidates
 {
     public class IndexModel : PageModel
     {
@@ -18,12 +19,14 @@ namespace RecruitCatSameemz.Pages.Models
             _context = context;
         }
 
-        public IList<Company> Company { get;set; }
+        public IList<Candidate> Candidate { get;set; }
 
         public async Task OnGetAsync()
         {
-            Company = await _context.Company
-                .Include(c => c.Industry).ToListAsync();
+            Candidate = await _context.Candidate
+                .Include(c => c.Company)
+                .Include(c => c.Industry)
+                .Include(c => c.JobTitle).ToListAsync();
         }
     }
 }

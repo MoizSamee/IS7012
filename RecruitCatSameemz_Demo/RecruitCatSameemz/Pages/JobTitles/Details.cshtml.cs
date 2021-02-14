@@ -6,8 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using RecruitCatSameemz.Data;
+using RecruitCatSameemz.Pages.Models;
 
-namespace RecruitCatSameemz.Pages.Models
+namespace RecruitCatSameemz.Pages.JobTitles
 {
     public class DetailsModel : PageModel
     {
@@ -18,7 +19,7 @@ namespace RecruitCatSameemz.Pages.Models
             _context = context;
         }
 
-        public Company Company { get; set; }
+        public JobTitle JobTitle { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -27,10 +28,9 @@ namespace RecruitCatSameemz.Pages.Models
                 return NotFound();
             }
 
-            Company = await _context.Company
-                .Include(c => c.Industry).FirstOrDefaultAsync(m => m.CompanyId == id);
+            JobTitle = await _context.JobTitle.FirstOrDefaultAsync(m => m.JobTitleId == id);
 
-            if (Company == null)
+            if (JobTitle == null)
             {
                 return NotFound();
             }

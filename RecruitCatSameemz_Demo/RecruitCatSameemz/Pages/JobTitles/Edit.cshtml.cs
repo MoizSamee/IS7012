@@ -7,8 +7,9 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using RecruitCatSameemz.Data;
+using RecruitCatSameemz.Pages.Models;
 
-namespace RecruitCatSameemz.Pages.Models
+namespace RecruitCatSameemz.Pages.JobTitles
 {
     public class EditModel : PageModel
     {
@@ -20,7 +21,7 @@ namespace RecruitCatSameemz.Pages.Models
         }
 
         [BindProperty]
-        public Company Company { get; set; }
+        public JobTitle JobTitle { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -29,14 +30,12 @@ namespace RecruitCatSameemz.Pages.Models
                 return NotFound();
             }
 
-            Company = await _context.Company
-                .Include(c => c.Industry).FirstOrDefaultAsync(m => m.CompanyId == id);
+            JobTitle = await _context.JobTitle.FirstOrDefaultAsync(m => m.JobTitleId == id);
 
-            if (Company == null)
+            if (JobTitle == null)
             {
                 return NotFound();
             }
-           ViewData["IndustryId"] = new SelectList(_context.Set<Industry>(), "IndustryId", "IndustryId");
             return Page();
         }
 
@@ -49,7 +48,7 @@ namespace RecruitCatSameemz.Pages.Models
                 return Page();
             }
 
-            _context.Attach(Company).State = EntityState.Modified;
+            _context.Attach(JobTitle).State = EntityState.Modified;
 
             try
             {
@@ -57,7 +56,7 @@ namespace RecruitCatSameemz.Pages.Models
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CompanyExists(Company.CompanyId))
+                if (!JobTitleExists(JobTitle.JobTitleId))
                 {
                     return NotFound();
                 }
@@ -70,9 +69,9 @@ namespace RecruitCatSameemz.Pages.Models
             return RedirectToPage("./Index");
         }
 
-        private bool CompanyExists(int id)
+        private bool JobTitleExists(int id)
         {
-            return _context.Company.Any(e => e.CompanyId == id);
+            return _context.JobTitle.Any(e => e.JobTitleId == id);
         }
     }
 }

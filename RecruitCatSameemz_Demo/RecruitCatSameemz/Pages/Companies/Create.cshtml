@@ -1,11 +1,11 @@
 ﻿@page
-@model RecruitCatSameemz.Pages.Models.CreateModel
+@model RecruitCatSameemz.Pages.Companies.CreateModel
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Create Company";
 }
 
-<h1>Create</h1>
+<h1>Create a nee Company</h1>
 
 <h4>Company</h4>
 <hr />
@@ -19,10 +19,16 @@
                 <span asp-validation-for="Company.ComapyName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Company.OpenPosition" class="control-label"></label>
-                <input asp-for="Company.OpenPosition" class="form-control" />
-                <span asp-validation-for="Company.OpenPosition" class="text-danger"></span>
+                <label asp-for="Company.IndustryId" class="control-label"></label>
+                <select asp-for="Company.IndustryId" class="form-control" asp-items="ViewBag.IndustryId"></select>
+                <span asp-validation-for="Company.IndustryId" class="text-danger"></span>
             </div>
+            <div class="form-group">
+                <label asp-for="Company.JobTitleId" class="control-label"></label>
+                <select asp-for="Company.JobTitleId" class="form-control" asp-items="ViewBag.JobTitleId"></select>
+                <span asp-validation-for="Company.JobTitleId" class="text-danger"></span>
+            </div>
+
             <div class="form-group">
                 <label asp-for="Company.MinSalary" class="control-label"></label>
                 <input asp-for="Company.MinSalary" class="form-control" />
@@ -40,21 +46,17 @@
             </div>
             <div class="form-group">
                 <label asp-for="Company.Location" class="control-label"></label>
-                <input asp-for="Company.Location" class="form-control" />
+                <textarea asp-for="Company.Location" class="form-control" ></textarea>
                 <span asp-validation-for="Company.Location" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Company.IndustryId" class="control-label"></label>
-                <select asp-for="Company.IndustryId" class ="form-control" asp-items="ViewBag.IndustryId"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="Company.AddressId" class="control-label"></label>
-                <input asp-for="Company.AddressId" class="form-control" />
-                <span asp-validation-for="Company.AddressId" class="text-danger"></span>
+                <label asp-for="Company.Address" class="control-label"></label>
+                <textarea id="textarea" asp-for="Company.Address" class="form-control" ></textarea>
+                <span asp-validation-for="Company.Address" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Company.Description" class="control-label"></label>
-                <input asp-for="Company.Description" class="form-control" />
+                <textarea id="textarea" asp-for="Company.Description" class="form-control" ></textarea>
                 <span asp-validation-for="Company.Description" class="text-danger"></span>
             </div>
             <div class="form-group">
